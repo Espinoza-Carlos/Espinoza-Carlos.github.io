@@ -1,7 +1,7 @@
 # CIT261-Folder
 In this folther I will work hard to achieve 
 Working	Skilled
-the following week I'll work on.
+the following week I'll work on. 
 Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays	Submit Fluency Evidence: JavaScript		
 Object Creation Functions, Inheritance, Properties, Methods, Instantiation	Submit Fluency Evidence: JavaScript Objects		
 JSON Parse, Stringify	Submit Fluency Evidence: JSON		
