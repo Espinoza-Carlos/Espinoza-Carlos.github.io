@@ -28,7 +28,7 @@
 				loopmessage += person[counter] + " ";
 			}
 			loopmessage += "<br />" + "for/in Loop stopped!";
-			document.getElementById("this is the end of for-in-loop-example").innerHTML = loopmessage;
+			document.getElementById("for-in-loop-example").innerHTML = loopmessage;
 		}
 				
 		function whileLoopExample(){
@@ -107,10 +107,10 @@
 		
 		function objectDatatypeExample() {
 			var person = {
-				firstName : "Michael",
-				lastName  : "Friedman",
-				age       : 22,
-				eyeColor  : "Brown"
+				firstName : "Carlos",
+				lastName  : "Espinoza",
+				age       : 33,
+				eyeColor  : "Black"
 			};
 
 			document.getElementById("object-datatype-example").innerHTML =
@@ -119,9 +119,9 @@
 		
 		function associativeArrayExample() {
 			var person = [];
-			person["firstName"] = "Michael";
-			person["lastName"] = "Friedman";
-			person["age"] = 22; 
+			person["firstName"] = "Carlos";
+			person["lastName"] = "Espinoza";
+			person["age"] =33; 
 			document.getElementById("associative-array-example").innerHTML =
 				person[0] + " " + person.length;
 		}
