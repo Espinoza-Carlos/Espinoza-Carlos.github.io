@@ -1,0 +1,165 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="JavaScript Objects - Object Creation Functions, Inheritance, Properties, Methods, Instantiation">
+        <meta name="author" content="Carlos Espinoza">
+            
+        <title>JavaScript Objects - Object Creation Functions, Inheritance, Properties, Methods, Instantiation</title>
+    
+        <!-- Custom style for this site -->
+        <link href="/CIT261/css/style.css" rel="stylesheet">
+	
+        <!-- Normalize CSS -->
+        <link href="/CIT261/css/normalize.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <h3>JavaScript Objects - Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h3>
+            <hr>
+        </header>
+        <h3>Variable Creation Example</h3>
+        <p id="variable"></p>
+        <hr>
+        <h3>Creating a JavaScript Object.</h3>
+        <p id="usingObject"></p>
+        <hr>
+        <h3>JavaScript for...in Loop</h3>
+        <p id="forloop"></p>
+        <hr>
+         <h3>JavaScript Object adding new properties</h3>
+        <p id="JavaScript Object Properties"></p>
+        <hr>
+
+        <nav>
+        </nav>
+        <main>
+            <div class="main_content">
+                <div class="col_left">
+                    <p><b>Enter Soccer Team Info:</b></p>
+                    <fieldset>
+                        <div id="div_team_input">
+                            <input type="text" id="input_city" placeholder="City"><br>
+                            <input type="text" id="input_team" placeholder="Team Name"><br>
+                            <input type="text" id="input_league" placeholder="League"><br>
+                            <button onclick="addTeam()" id="button_add_team">Add Team</button>
+                        </div>
+                    </fieldset>
+                </div>
+                <div class="col_right">
+                    <p><b>Results:</b></p>
+                    <fieldset>
+                        <div id="div_team">&nbsp;</div>
+                        <p>&nbsp;</p>
+                        <div id="div_team_description">&nbsp;</div>
+                    </fieldset>
+                </div>
+            </div>
+        </main>
+        <footer>
+            
+        </footer>
+    </body>
+    <script >
+    // Array to contain the teams
+var teams = [];
+
+// Create a new object called team.
+function team() {
+    this.city = document.getElementById('input_city').value;
+    this.team = document.getElementById('input_team').value;
+    this.league = document.getElementById('input_league').value;
+    this.description = function() {
+        return "City: " + this.city + "<br />" +
+               "Team: " + this.team + "<br />" +
+               "League: " + this.league + "<br />";
+    };
+}   
+            
+// Add a team to the array, then clear the input fields.
+function addTeam () {
+    //create the new team object
+    teams.push(new team());
+    
+    //on the first team
+    if (teams.length == 1) {
+        //create the new button and the text
+        var b = document.createElement("BUTTON");
+        var c = document.createTextNode("Team 1");
+                    
+        //add the textnode to the button element
+        b.appendChild(c);
+                    
+        //add a listener to the button to fire off when it is clicked
+        b.addEventListener("click", function() { getTeams(1); });
+                    
+        //now add the button to the document to make it visible to
+        //the end user
+        document.getElementById('div_team').appendChild(b);
+    }//on the second team
+    else if (teams.length == 2) {
+        //create the new button and the text
+        var b = document.createElement("BUTTON");
+        var c = document.createTextNode("Team 2");
+                    
+        //add the textnode to the button element
+        b.appendChild(c);
+                    
+        //add a listener to the button to fire off when it is clicked
+        b.addEventListener("click", function() { getTeams(2); });
+                    
+        //now add the button to the document to make it visible to
+        //the end user
+        document.getElementById('div_team').appendChild(b);
+    } //on the third team
+    else if (teams.length == 3) {
+        var b = document.createElement("BUTTON");
+        var c = document.createTextNode("Team 3");
+        b.appendChild(c);
+        b.addEventListener("click", function() { getTeams(3); });
+        document.getElementById('div_team').appendChild(b);
+        
+        //clear out the elements that allow us to input new teams.
+        //max out the teams at3
+        document.getElementById('div_team_input').innerHTML = '';
+        return;
+    }
+    //clear out the input elemnts so that the next team is ready
+    document.getElementById('input_city').value='';
+    document.getElementById('input_team').value='';
+    document.getElementById('input_league').value='';
+}
+         
+// Calls the createAJAX() function and then uses the ajax object to call
+// the web server and pull the JSON file back, then parse it and act on it.
+function getTeams(number) {
+    document.getElementById('div_team_description').innerHTML = teams[number-1].description();
+}
+        
+        // Create aand display a variable:
+var name = "Carlos Espinoza";
+document.getElementById("variable").innerHTML = name;
+        
+        //using an object
+        var person = {firstName:"Carlos", lastName:"Espinoza", age:33, eyeColor:"brown"};
+document.getElementById("usingObject").innerHTML =
+person.firstName + " is " + person.age + " years old.";
+        var txt = "";
+var person = {fname:"Carlos", lname:"Espinoza", age:33}; 
+var x;
+for (x in person) {
+  txt += person[x] + " ";
+}
+document.getElementById("forloop").innerHTML = txt;
+        var person = {
+  firstname:"Carlos",
+  lastname:"Espinoza",
+  age:33,
+  eyecolor:"blue"
+};
+
+person.nationality = "Guatemalan";
+document.getElementById("JavaScript Object Properties").innerHTML =
+person.firstname + " is " + person.nationality + ".";
+    </script>
+</html>
